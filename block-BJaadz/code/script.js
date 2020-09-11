@@ -57,8 +57,12 @@ para.innerText =
   'querySelector returns an element you can manipulate but querySelectorAll returns the collection of elements in array kind of structure.';
 
 // Remove all the elements from box 1
+let oneRm = document.querySelector('.one');
+oneRm.children[0].remove();
+oneRm.children[0].remove();
 
 // Replace all the elements inside box 1 with the para (you created above)
+oneRm.append(para);
 
 /* Walking the DOM
 Do the following after selecting box 16 and storing in variable named box16
@@ -77,6 +81,19 @@ Do the following after selecting box 16 and storing in variable named box16
 
   - Focus on the difference between element and node
 */
+let box16 = document.querySelector('.sixteen');
+console.log(
+  box16.parentNode,
+  box16.childNodes,
+  box16.previousSibling,
+  box16.nextSibling,
+  box16.firstChild,
+  box16.lastChild,
+  box16.previousElementSibling,
+  box16.nextElementSibling,
+  box16.firstElementChild,
+  box16.lastElementChild
+);
 
 // Select box 2 and append a new paragraph element with content "Append inserts as last child" just after hr element.
 let box2 = document.querySelector('.two');
@@ -100,6 +117,7 @@ document.querySelector('.five').style.borderRadius = '10px';
 document.querySelector('.six').style.color = 'black';
 
 // Change the font size of the para inside box 1 to 0.8rem.
+oneRm.style.fontSize = '0.8rem';
 
 // Change the background of all the alternate boxes (1, 3, 5, ....) to aliceblue
 let oddBox = document.querySelectorAll('.archive div:nth-child(2n + 1)');
@@ -110,6 +128,8 @@ oddBoxArr.map((elm) => (elm.style.background = 'aliceblue'));
 document.querySelector('.six').classList.add('awesome-box');
 
 // Using the toggle classList property toggle the class `awesome-box` from box 2
+// let box2 = document.querySelector('.two');
+box2.classList.toggle('awesome-box');
 
 // Using the remove classList property remove the class `awesome-box` from box 4
 document.querySelector('.four').classList.remove('awesome-box');
@@ -141,14 +161,21 @@ document.querySelector('.nine').append(btn);
 
 // Create a img element with src value `https://images.unsplash.com/photo-1592500595497-d1f52a40b207?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80` and store in a variable named imgElm
 let imgElm = document.createElement('img');
+imgElm.setAttribute(
+  'src',
+  'https://images.unsplash.com/photo-1592500595497-d1f52a40b207?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80'
+);
 
 // Select the box 7 using class seven
-document.querySelector('.seven');
+let box7 = document.querySelector('.seven');
 
 // Remove all the elements form box seven
+box7.children[0].remove();
+box7.children[0].remove();
+box7.children[0].remove();
 
 // Append the imgElm to the box no 7
-document.querySelector('.seven').append('imgElm');
+box7.append(imgElm);
 
 // Change the width and height of the image to `100%`
 imgElm.style.width = '100%';
@@ -161,14 +188,21 @@ document.querySelector('.five');
 let inputElm = document.createElement('input');
 
 // Change the placeholder property of the input element to "Enter you email!"
-
-console.log(inputElm);
+inputElm.setAttribute('placeholder', 'Enter you email!');
 
 // Append the input element to the box 5 you selected above
-document.querySelector('.five').append('inputElm');
+document.querySelector('.five').append(inputElm);
 
 // Create two anchor (a) element with  the text of `AltCampus` and `Google`
+let a1 = document.createElement('a');
+let a2 = document.createElement('a');
+a1.innerText = 'AltCampus';
+a2.innerText = 'Google';
+console.log(inputElm, a1, a2);
 
 // Change the href property of the anchor elements to `https://altcampus.school` and `https://google.com`
+a1.setAttribute('href', 'https://altcampus.school');
+a2.setAttribute('href', 'https://altcampus.school');
 
 // Append both the elements to box 5 you selected above.
+document.querySelector('.five').append(a1, a2);
