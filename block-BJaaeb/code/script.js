@@ -1,11 +1,12 @@
 /*
-
 Write a function named `createInputElm` that accepts two parameter (label and `type`) type
 default value to be "text" and return the input element inside label. (create it using `createElement`)
-
 */
 
-// Your code goes here
+function createInputElm(label, type = 'text') {
+  let labelElm = document.createElement('label');
+  let inputElm = document.createElement('input');
+}
 
 // TEST
 createInputElm('Your name'); //<label>Your name: <input type="text"></label>
